@@ -15,7 +15,7 @@ The app gives drivers a platform where they can create ride offers and a place w
     - A driver should be able to create a new ride offer
     - A passenger should be able to make a request to join a ride
 
-#Installation guide
+# Installation guide
 ## Want to have a look at the work done so far
 
     There are two ways you can preview the current state of this work
@@ -25,7 +25,7 @@ Include steps to run the code on localhost
 Include steps to run the code on heroku //A link may be useful here
 
 
-##The API
+## The API
 The features in challenge 2 are implemented using API's. The table below shows the API endpoints to be followed.
 ### Endpoints
 
