@@ -1,7 +1,13 @@
-
 language: python
 python:
   - "3.6.1"
 
 install:
   - pip install  -r requirements.txt
+  - pip install coveralls
+  
+script: 
+  - pytest --cov=Api test/
+
+after_success : 
+- coveralls
