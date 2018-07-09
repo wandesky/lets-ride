@@ -1,34 +1,34 @@
-####Driver Info####
-##Driver(self,username, password, accountID, fleetID, nationalID)
+from flask import Flask, jsonify
+from flask_restful import Resource, Api
+from models import User, Driver, Passenger
+
+app = Flask(__name__)
+api = Api(app)
+
+#Dummy objects to use while testing
+dummy_driver = Driver('dummy_username', 'dummy_password', 'dummy_accountID', 'dummy_fleetID', 'dummy_nationalID')
+dummy_passenger = Passenger
 
 
-#####Driver creating a ride########
-##Driver(self, route, departure_time, arrival_time)
+class Ride(Resource):
+    def get(self, rideID):
+        # return {'ride': name}
+        status = User.get_specific_ride(self, rideID)
+        return status
+    
 
-'''
-ride_3 = {
-    'status': 'ride created successfully',
-    'route': 'routedetails3',
-    'rideID': 'XYZABC003',
-    'departure': '9.00AM',
-    'arrival_time': '10.00AM'
-}
-'''
+    def put(self, rideID):
+        # return {'ride': name}
+        status = dummy_driver.create_ride_offer('dummy_route', 'dummy_origin', 'dummy_destination', rideID, 'dummy_departure_time', 'dummy_arrival_time')
+        return status
 
-
-from models import User, Driver, User
-
-driver_dummy = Driver('pogba', '123', '001', 'fleet002', '223399')
-driver_dummy.create_ride_offer('routedetails3', '10.00AM', '12.00PM')
+class AllRides(Resource):
+    def get(self):
+        all_rides = User.get_all_rides(self)
+        return jsonify(all_rides)
 
 
+api.add_resource(Ride, '/api/v1/rides/<string:rideID>')
+api.add_resource(AllRides, '/api/v1/rides')
 
-
-
-
-# driver_dummy.
-# driver_dummy.fleetID = '000AQ'
-# passanger_dummy = Passenger('David', 'pwd123', 'accountID')
-
-# driver_dummy.create_ride_offer('AAABBBCCC', '11AM', '12PM')
-# passanger_dummy.request_ride()
+app.run(debug=True)
