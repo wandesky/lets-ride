@@ -7,7 +7,7 @@ install:
   - pip install coveralls
   
 script: 
-  - pytest --cov=Api test/
+  - pytest --cov=test_class.py/
 
 after_success : 
 - coveralls
