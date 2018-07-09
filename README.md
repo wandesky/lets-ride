@@ -1,5 +1,6 @@
 # Ride-My-Way
 [![Coverage Status](https://coveralls.io/repos/github/wandesky/lets-ride/badge.svg?branch=develop)](https://coveralls.io/github/wandesky/lets-ride?branch=develop)
+[![Build Status](https://travis-ci.org/wandesky/lets-ride.svg?branch=develop)](https://travis-ci.org/wandesky/lets-ride)
 
 Repository for Andela Kenya Cohort 29 Bootcamp Developer Challenge.
 
