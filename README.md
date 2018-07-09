@@ -1,4 +1,5 @@
 # Ride-My-Way
+[![Coverage Status](https://coveralls.io/repos/github/wandesky/lets-ride/badge.svg?branch=develop)](https://coveralls.io/github/wandesky/lets-ride?branch=develop)
 Repository for Andela Kenya Cohort 29 Bootcamp Developer Challenge.
 
 Ride My Way is a carpooling web application.
