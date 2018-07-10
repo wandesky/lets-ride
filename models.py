@@ -33,6 +33,10 @@ ride_3 = {
 ## a dummy list of all rides
 ####rides_list = [ride_1, ride_2, ride_3]
 
+drivers_list = []
+passengers_list = []
+
+
 rides_list = []
 
 class User:
@@ -56,25 +60,32 @@ class User:
         
     
 class Driver(User):
-    def __init__(self,username, password, accountID, fleetID, nationalID):
+    def __init__(self,username, password, fleetID, nationalID):
+        self.driverID = 'driver'+str(len(drivers_list)+1)
         self.fleetID = fleetID
         self.nationalID = nationalID
 
     ###Create a new ride###
-    def create_ride_offer(self, route, origin, destination, rideID, departure_time, arrival_time):
+    def create_ride_offer(self): #take the ride as an object
         
         #The original_list_length will later be used to check if the length of the list has been increased, in which case it will mean the ride was successfully created
         
         original_list_length = len(rides_list)
         # print(original_list_length)
 
+        ride = Ride('dummy_route', self, 'dummy_origin', 'dummy_destination', 'dummy_departure_time', 'dummy_arrival_time')
+
+        # rides_list.append(ride)
         rides_list.append({
-            'route': 'googlemaplink',
-            'origin': origin,
-            'destination': destination,
-            'rideID' : rideID, #come back and insert function to generate unique rideID for ever new ride
-            'departure': departure_time,
-            'arrival_time': arrival_time
+            'route': ride.route,
+            'origin': ride.origin,
+            'destination': ride.destination,
+            'rideID' : ride.rideID,
+            'departure': ride.departure_time,
+            'arrival_time': ride.arrival_time,
+            'driverID': self.driverID,
+            'passengerID': ride.passengerID
+
         })
 
         #Checking to see if the number of rides in the list has increased        
@@ -92,15 +103,25 @@ class Driver(User):
 
             
 class Passenger(User):
-    def request_ride():
-        # if condition: #success
-        #     pass # return confirmation message
-        # else condition:
-        #     pass #return error message
-        pass
+    def __init__(self, username, password, nationalID):
+        self.passengerID = 'pass'+str(len(passengers_list)+1)
+
+    def request_ride(self, rideID):
+        ride_index = next((index for (index, d) in enumerate(rides_list) if d["rideID"] == str(rideID) ), None)
+        print('You are about to request this ride:')
+        print(rides_list[ride_index])
+        rides_list[ride_index]['passengerID'] = self.passengerID
+        return(rides_list[ride_index])
+        
     
 
 class Ride:
-    def __init__(self, rideID, route):
-        self.rideID = rideID
+    def __init__(self, route, driver, origin, destination, departure_time, arrival_time):
+        self.rideID = str(len(rides_list)+1)
         self.route = route
+        self.driverID = driver.driverID
+        self.origin = origin
+        self.destination = destination
+        self.departure_time = departure_time
+        self.arrival_time = arrival_time
+        self.passengerID = 'null'
