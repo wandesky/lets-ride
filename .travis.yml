@@ -2,7 +2,7 @@
   python:
     - "3.6"
   script:
-    - unittest
+    - python tests.py
 
 # language: python
 # python:
