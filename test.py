@@ -1,6 +1,20 @@
 from app import app
 import unittest
+# import json
 
+# class TestUserSignup(unittest.TestCase):
+#     """Class test 4 user signup"""
+
+#     def set_up(self):
+#         self.app = app 'leave pending-'
+#         self.client = self.app.test_client()
+
+#     def test_user_signup(self):
+#         '''What does this method do'''
+#         response = self.client.post
+
+#     def test_access_specific_ride(self):
+#         access = self.client.get('/api/v1/rides/1', header={'Content-Type':'application/json'})
 
 
 class FlaskTestCase(unittest.TestCase):
@@ -12,11 +26,28 @@ class FlaskTestCase(unittest.TestCase):
     #     self.assertEqual(response.status_code, 200)
 
 # Ensure that all rides are displayed
-    def test_acess_all_rides(self):
+    def test_access_all_rides(self):
         tester = app.test_client(self)
         response = tester.get('/api/v1/rides', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+# Ensure that a user can access a specific ride
+    def test_access_specific_ride(self):
+        tester = app.test_client(self)
+        response = tester.get('/api/v1/rides/1', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
+# Ensure that a driver can post a ride
+    def test_post_ride(self):
+        tester = app.test_client(self)
+        response = tester.post('/api/v1/rides', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
+# Ensure that a passanger can request a ride
+    def test_request_ride(self):
+        tester = app.test_client(self)
+        response = tester.post('/api/v1/rides/1/requests', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()

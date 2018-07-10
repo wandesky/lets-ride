@@ -25,19 +25,20 @@ ride_3 = {
     'route': 'routedetails3',
     'origin': 'NBO',
     'destination': 'NKU',
-    'rideID': '001',
+    'rideID': '1',
     'departure': '9.00AM',
     'arrival_time': '10.00AM'
 }
 
 ## a dummy list of all rides
-####rides_list = [ride_1, ride_2, ride_3]
+rides_list = [ride_3]
 
+## 
 drivers_list = []
 passengers_list = []
 
 
-rides_list = []
+# rides_list = []
 
 class User:
     def __init__(self, username, password, accountID):
