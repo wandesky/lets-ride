@@ -2,6 +2,7 @@ from app import app
 import unittest
 
 
+
 class FlaskTestCase(unittest.TestCase):
 
     # # Ensure that flask was set up correctly
@@ -15,6 +16,7 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get('/api/v1/rides', content_type='html/text')
         self.assertEqual(response.status_code, 200)
+
 
 if __name__ == '__main__':
     unittest.main()
