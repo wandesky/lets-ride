@@ -1,9 +1,10 @@
-language: python
-python:
-  - "3.6.1"
+ language: python
+  python:
+    - "3.6.1"
 
-before_script:
-  - pip install  -r requirements.txt
-  
-script: 
-  app.py/
+  install:
+    - pip install -r requirements.txt
+
+
+  script:
+    - pytest test.py

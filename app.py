@@ -49,4 +49,5 @@ api.add_resource(AddRide, '/api/v1/rides')
 # a passenger requesting a ride
 api.add_resource(RequestRide, '/api/v1/rides/<string:rideID>/requests')
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
