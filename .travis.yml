@@ -2,14 +2,4 @@
   python:
     - "3.6"
   script:
-    - python tests.py
-
-# language: python
-# python:
-#   - "3.6.1"
-
-# before_script:
-#   - pip install  -r requirements.txt
-  
-# script: 
-#   - "python test.py test"
+    - python test.py
