@@ -1,15 +1,8 @@
 # Ride-My-Way
 
-[comment]: # (Coveralls badge)
 [![Coverage Status](https://coveralls.io/repos/github/wandesky/lets-ride/badge.svg)](https://coveralls.io/github/wandesky/lets-ride)
-
-[comment]: # (Travis badge)
 [![Build Status](https://travis-ci.org/wandesky/lets-ride.svg?branch=develop)](https://travis-ci.org/wandesky/lets-ride)
-
-[comment]: # (Codeclimate maintability badge)
 [![Maintainability](https://api.codeclimate.com/v1/badges/cc2ab8ceaf068ba0bccd/maintainability)](https://codeclimate.com/github/wandesky/lets-ride/maintainability)
-
-[comment]: # (Codeclimate test coverage badge)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/cc2ab8ceaf068ba0bccd/test_coverage)](https://codeclimate.com/github/wandesky/lets-ride/test_coverage)
 
 Repository for Andela Kenya Cohort 29 Bootcamp Developer Challenge.
