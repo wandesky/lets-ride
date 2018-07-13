@@ -59,7 +59,9 @@ class User:
     def request_ride(self, rideID):
         pass
         
-    
+    def load_default_page():
+        return "You should not be here. In order to get things working, try adding /api/v1/rides to the url above"
+        
 class Driver(User):
     def __init__(self,username, password, fleetID, nationalID):
         self.driverID = 'driver'+str(len(drivers_list)+1)

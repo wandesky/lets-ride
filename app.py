@@ -26,7 +26,6 @@ class SpecificRide(Resource):
 
 class AddRide(Resource):    
     def post(self):
-    
         status = dummy_driver.create_ride_offer()
         return status
 
@@ -35,6 +34,11 @@ class RequestRide(Resource):
     def post(self, rideID):
         all_rides = dummy_passenger.request_ride(rideID)
         return jsonify(all_rides)
+
+class DefaultErrorPage(Resource):
+    def get(self):
+        User.load_default_page()
+        return "You should not be here. In order to get things working, try adding /api/v1/rides to the url above"
 
 
 # a user viewing all available rides
@@ -48,6 +52,10 @@ api.add_resource(AddRide, '/api/v1/rides')
 
 # a passenger requesting a ride
 api.add_resource(RequestRide, '/api/v1/rides/<string:rideID>/requests')
+
+# letting the user know they are using a wrong link
+api.add_resource(DefaultErrorPage, '/', '/api', '/api/v1')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
