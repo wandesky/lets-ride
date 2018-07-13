@@ -53,14 +53,8 @@ class User:
         ride_index = next((index for (index, d) in enumerate(rides_list) if d["rideID"] == str(rideID) ), None)
         return rides_list[ride_index]
         
-    # def get_all_rides(self):
-    #     pass #all rides
-
-    def request_ride(self, rideID):
-        pass
-        
     def load_default_page():
-        return "You should not be here. In order to get things working, try adding /api/v1/rides to the url above"
+        return "Warning: You should not be here. In order to get things working, try adding /api/v1/rides to the url above"
         
 class Driver(User):
     def __init__(self,username, password, fleetID, nationalID):

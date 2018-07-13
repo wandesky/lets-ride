@@ -1,16 +1,17 @@
 from app import app
+import models
 import unittest
 
 class FlaskTestCase(unittest.TestCase):
 
 # Ensure that all rides are displayed
-    def test_access_all_rides(self):
+    def test_get_all_rides(self):
         tester = app.test_client(self)
         response = tester.get('/api/v1/rides', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
 # Ensure that a user can access a specific ride
-    def test_access_specific_ride(self):
+    def test_get_specific_ride(self):
         tester = app.test_client(self)
         response = tester.get('/api/v1/rides/1', content_type='html/text')
         self.assertEqual(response.status_code, 200)
@@ -26,6 +27,11 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post('/api/v1/rides/1/requests', content_type='html/text')
         self.assertEqual(response.status_code, 200)
+
+
+def test_load_default_page():
+    response = models.User.load_default_page()
+    assert 'Warning:' in response
 
 if __name__ == '__main__':
     unittest.main()
