@@ -1,42 +1,44 @@
-
-
-
 ##### some dummy data for testing ####
 ## dictionaries having individual ride details
 ride_1 = {
-    'route': 'routefromgooglemap', #To be implemented later, use googlemap API or equivalent to get the route
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': 'XYZABC002', #To be implemented later, find a way to generate unique ride ID's for each ride
-    'departure': '8.00AM',
-    'arrival_time': '10.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '1',
+    'route': 'routeinfo'
 }
 
 ride_2 = {
-    'route': 'routedetails2',
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': 'XYZABC002',
-    'departure': '11.00AM',
-    'arrival_time': '12.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '2',
+    'route': 'routeinfo'
 }
 
 ride_3 = {
-    'route': 'routedetails3',
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': '1',
-    'departure': '9.00AM',
-    'arrival_time': '10.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '3',
+    'route': 'routeinfo'
 }
 
 ## a dummy list of all rides
-rides_list = [ride_3]
+rides_list = [ride_1]
 
 ## 
 drivers_list = []
 passengers_list = []
-
 
 # rides_list = []
 
@@ -105,7 +107,7 @@ class Passenger(User):
 
     def request_ride(self, rideID):
         ride_index = next((index for (index, d) in enumerate(rides_list) if d["rideID"] == str(rideID) ), None)
-        print('You are about to request this ride:')
+        print('You have requested this ride:')
         print(rides_list[ride_index])
         rides_list[ride_index]['passengerID'] = self.passengerID
         return(rides_list[ride_index])
