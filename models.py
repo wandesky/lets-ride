@@ -54,7 +54,7 @@ class User:
         return rides_list[ride_index]
         
     def load_default_page():
-        return "Warning: You should not be here. In order to get things working, try adding /api/v1/rides to the url above"
+        return "Warning: You should not be here. In order to get things working, try adding /api/v1/rides to the url above."
         
 class Driver(User):
     def __init__(self,username, password, fleetID, nationalID):
@@ -63,14 +63,14 @@ class Driver(User):
         self.nationalID = nationalID
 
     ###Create a new ride###
-    def create_ride_offer(self): #take the ride as an object
+    def create_ride_offer(self, ride): #take the ride as an object
         
         #The original_list_length will later be used to check if the length of the list has been increased, in which case it will mean the ride was successfully created
         
         original_list_length = len(rides_list)
         # print(original_list_length)
 
-        ride = Ride('dummy_route', self, 'dummy_origin', 'dummy_destination', 'dummy_departure_time', 'dummy_arrival_time')
+        # ride = Ride(self, route, origin, destination, rideID, departure, arrival_time)
 
         # rides_list.append(ride)
         rides_list.append({
