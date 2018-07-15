@@ -28,7 +28,8 @@ The app gives drivers a platform where they can create ride offers and a place w
 ### Using localhost
 Include steps to run the code on localhost
 ### Using Heroku 
-Include steps to run the code on heroku //A link may be useful here
+Include steps to run the code on heroku 
+https://lets-ride-heroku-staging.herokuapp.com/api/v1/rides
 
 
 ## The API

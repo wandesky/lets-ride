@@ -1,42 +1,44 @@
-
-
-
 ##### some dummy data for testing ####
 ## dictionaries having individual ride details
 ride_1 = {
-    'route': 'routefromgooglemap', #To be implemented later, use googlemap API or equivalent to get the route
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': 'XYZABC002', #To be implemented later, find a way to generate unique ride ID's for each ride
-    'departure': '8.00AM',
-    'arrival_time': '10.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '1',
+    'route': 'routeinfo'
 }
 
 ride_2 = {
-    'route': 'routedetails2',
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': 'XYZABC002',
-    'departure': '11.00AM',
-    'arrival_time': '12.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '2',
+    'route': 'routeinfo'
 }
 
 ride_3 = {
-    'route': 'routedetails3',
-    'origin': 'NBO',
-    'destination': 'NKU',
-    'rideID': '1',
-    'departure': '9.00AM',
-    'arrival_time': '10.00AM'
+    'arrival_time': '10.30',
+    'departure': '9.00am',
+    'destination': 'nku',
+    'driverID': 'driver1',
+    'origin': 'nbo',
+    'passengerID': 'null',
+    'rideID': '3',
+    'route': 'routeinfo'
 }
 
 ## a dummy list of all rides
-rides_list = [ride_3]
+rides_list = [ride_1]
 
 ## 
 drivers_list = []
 passengers_list = []
-
 
 # rides_list = []
 
@@ -53,13 +55,9 @@ class User:
         ride_index = next((index for (index, d) in enumerate(rides_list) if d["rideID"] == str(rideID) ), None)
         return rides_list[ride_index]
         
-    # def get_all_rides(self):
-    #     pass #all rides
-
-    def request_ride(self, rideID):
-        pass
+    def load_default_page():
+        return "Warning: You should not be here. In order to get things working, try adding /api/v1/rides to the url above."
         
-    
 class Driver(User):
     def __init__(self,username, password, fleetID, nationalID):
         self.driverID = 'driver'+str(len(drivers_list)+1)
@@ -67,14 +65,14 @@ class Driver(User):
         self.nationalID = nationalID
 
     ###Create a new ride###
-    def create_ride_offer(self): #take the ride as an object
+    def create_ride_offer(self, ride): #take the ride as an object
         
         #The original_list_length will later be used to check if the length of the list has been increased, in which case it will mean the ride was successfully created
         
         original_list_length = len(rides_list)
         # print(original_list_length)
 
-        ride = Ride('dummy_route', self, 'dummy_origin', 'dummy_destination', 'dummy_departure_time', 'dummy_arrival_time')
+        # ride = Ride(self, route, origin, destination, rideID, departure, arrival_time)
 
         # rides_list.append(ride)
         rides_list.append({
@@ -109,7 +107,7 @@ class Passenger(User):
 
     def request_ride(self, rideID):
         ride_index = next((index for (index, d) in enumerate(rides_list) if d["rideID"] == str(rideID) ), None)
-        print('You are about to request this ride:')
+        print('You have requested this ride:')
         print(rides_list[ride_index])
         rides_list[ride_index]['passengerID'] = self.passengerID
         return(rides_list[ride_index])
